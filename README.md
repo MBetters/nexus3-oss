@@ -41,7 +41,7 @@ _(Created with [gh-md-toc](https://github.com/ekalinin/github-markdown-toc))_
             * [Force groovy scripts registration](#force-groovy-scripts-registration)
             * [Change admin password after first install](#change-admin-password-after-first-install)
             * [Upgrade nexus to latest version](#upgrade-nexus-to-latest-version)
-            * [Skip provisionning tasks](#skip-provisionning-tasks)
+            * [Skip provisioning tasks](#skip-provisioning-tasks)
       * [Dependencies](#dependencies)
       * [Example Playbook](#example-playbook)
       * [Development, Contribution and Testing](#development-contribution-and-testing)
@@ -201,7 +201,7 @@ The fully qualified domain name and scheme under which the nexus instance will b
     nexus_api_context_path: "{{ nexus_default_context_path }}"
     nexus_api_port: "{{ nexus_default_port }}"
 ```
-These vars control how the role connects to the nexus API for provisionning.
+These vars control how the role connects to the nexus API for provisioning.
 **For advance usage only. You most probably do not want to change these default settings**
 
 ### Branding capabalities
@@ -492,7 +492,7 @@ Delete the default blobstore from the nexus install initial default configuratio
     #     secretAccessKey: "{{ VAULT_ENCRYPTED_ACCESS_KEY }}"
 ```
 
-[Blobstores](https://help.sonatype.com/display/NXRM3/Repository+Management#RepositoryManagement-BlobStores) to create. A blobstore path and a repository blobstore cannot be updated after initial creation (any update here will be ignored on re-provisionning).
+[Blobstores](https://help.sonatype.com/display/NXRM3/Repository+Management#RepositoryManagement-BlobStores) to create. A blobstore path and a repository blobstore cannot be updated after initial creation (any update here will be ignored on re-provisioning).
 
 Configuring blobstore on S3 is provided as a convenience and is not part of the automated tests we run on travis. Please note that storing on S3 is only recommended for instances deployed on AWS.
 
@@ -743,12 +743,12 @@ We strongly suggest to use this variable only as an extra var to ansible-playboo
 ansible-playbook -i your/inventory.ini your_playbook.yml -e nexus_upgrade=true
 ```
 
-#### Skip provisionning tasks
+#### Skip provisioning tasks
 ```yaml
-    nexus_run_provisionning: false
+    nexus_run_provisioning: false
 ```
 This var is unset by default and will default to `true`. Setting it to `false` will cause the role to skip all of the
-provisionning tasks and will therefore *not create/update*:
+provisioning tasks and will therefore *not create/update*:
 * ldap configurations
 * content selectors
 * privileges
@@ -763,7 +763,7 @@ to simply check nexus is correctly installed, or restore a backup, or upgrade ne
 
 We strongly suggest to use this variable only as an extra var to ansible-playbook call
 ```bash
-ansible-playbook -i your/inventory.ini your_playbook.yml -e nexus_run_provisionning=false
+ansible-playbook -i your/inventory.ini your_playbook.yml -e nexus_run_provisioning=false
 ```
 
 ## Dependencies

@@ -130,7 +130,7 @@
           when: nexus_blobstores | length > 0
 
 
-  when: nexus_run_provisionning | default(true) | bool
+  when: nexus_run_provisioning | default(true) | bool
 
 - name: "Restore nexus backup"
   include_tasks: nexus-restore.yml
@@ -147,7 +147,7 @@
         script_name: create_repos_from_list
         args: "{{ _nexus_repos_global_list }}"
 
-  when: nexus_run_provisionning | default(true) | bool
+  when: nexus_run_provisioning | default(true) | bool
 
 - include_tasks: call_script.yml
   vars:
@@ -223,7 +223,7 @@
 
 - include_tasks: create_task_each.yml
   with_items: "{{ nexus_scheduled_tasks }}"
-  when: nexus_run_provisionning | default(true) | bool
+  when: nexus_run_provisioning | default(true) | bool
 
 - name: Configure nexus backup task
   include_tasks: call_script.yml

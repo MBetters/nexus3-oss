@@ -18,11 +18,11 @@ nexus_timezone: 'UTC'  # java timezone
 nexus_tmp_dir: '/tmp/nexus'
 nexus_script_dir: '{{ nexus_installation_dir }}/nexus-{{ nexus_version }}/etc/scripts'
 
-# These are the default values for JVM Ram
-# don't touch those unless you have read
+# These are the default values for JVM RAM.
+# Don't touch these unless you have read
 # https://help.sonatype.com/repomanager3/system-requirements#SystemRequirements-Memory
 # and you know what you are doing
-# Note: those values probably belong to a host_vars files...
+# Note: these values probably belong to a host_vars files...
 nexus_min_heap_size: "1200M"
 nexus_max_heap_size: "{{ nexus_min_heap_size }}"
 nexus_max_direct_memory: "2G"
@@ -30,10 +30,10 @@ nexus_max_direct_memory: "2G"
 # Nexus Backup
 nexus_backup_dir: '/var/nexus-backup'
 nexus_restore_log: '{{ nexus_backup_dir }}/nexus-restore.log'
-nexus_backup_configure: false  # Shall we configure backup ?
+nexus_backup_configure: false  # Shall we configure backup?
 nexus_backup_cron: "0 0 21 * * ?"  # See cron expression in nexus create task GUI
-nexus_backup_rotate: false  # Shall we rotate backups
-nexus_backup_rotate_first: false  # Shall we rotate before making the current backup ?
+nexus_backup_rotate: false  # Shall we rotate backups?
+nexus_backup_rotate_first: false  # Shall we rotate before making the current backup?
 nexus_backup_keep_rotations: 4  # Keep 4 backup rotations by default (current + last 3)
 
 # Nexus restore procedure:
@@ -67,7 +67,7 @@ nexus_anonymous_access: false
 nexus_public_hostname: 'nexus.vm'
 nexus_public_scheme: https
 
-# How should the role access the API for provisionning
+# How should the role access the API for provisioning
 nexus_api_hostname: localhost
 nexus_api_scheme: http
 nexus_api_validate_certs: "{{ nexus_api_scheme == 'https' }}"
